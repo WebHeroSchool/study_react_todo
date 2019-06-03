@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import * as nums from './number';
 
 const sayHello = 'Hello World!';
 const flag = true;
@@ -31,6 +32,9 @@ function App() {
         <a href="#">{flag && "Show flag"}</a>
         <p>
           {flag ? "Flag is true" : "Flag is false"}
+        </p>
+        <p>
+          {nums.count * nums.length}
         </p>
       </header>
     </div>
