@@ -1,7 +1,15 @@
 import React from 'react';
 
-const title = (<div>Привет! Пройди по ссылке
-    <a href="#">Сюда</a>           
-    </div>);
+                   
+const ItemList= () => (<ol>
+                        <li>First task</li>
+                       <li>Second task</li>
+                       <li>Last task</li>
+                       </ol>);
+                       
+const App = () => (<div>
+                   <h1>This is my item list:</h1>
+                   <ItemList />
+                   </div>);
 
-export { title };
+export default App;
