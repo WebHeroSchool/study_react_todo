@@ -1,0 +1,10 @@
+.wrap {
+  margin: 0 auto;
+  width: 500px;
+}
+
+.wrap__title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  text-decoration: underline;
+}
