@@ -9,13 +9,16 @@ const todoItem = 'Почитать книгу';
 const App = () => {
     const items = [
       {
-        value: 'Почитать книгу'
+        value: 'Почитать книгу',
+        isDone: true
       },
       {
-        value: 'Приготовить обед'
+        value: 'Приготовить обед',
+        isDone: false
       },
       {
-        value: 'Помыть пол'
+        value: 'Помыть пол',
+        isDone: false
       }
     ];
     return (
