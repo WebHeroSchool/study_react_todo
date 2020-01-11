@@ -7,11 +7,13 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+import { render } from 'react-dom';
 
 
-const todoItem = 'Почитать книгу';
-           
-const App = () => {
+// const todoItem = 'Почитать книгу';
+
+class App extends React.Component {
+  render() {
     const items = [
       {
         value: 'Почитать книгу',
@@ -26,6 +28,7 @@ const App = () => {
         isDone: false
       }
     ];
+    
     return (
       <React.Fragment>
       <CssBaseline />
@@ -50,6 +53,7 @@ const App = () => {
       </Container>
     </React.Fragment>
     );
+  }
 }
 
 export default App;
