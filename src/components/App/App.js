@@ -13,8 +13,8 @@ import { render } from 'react-dom';
 // const todoItem = 'Почитать книгу';
 
 class App extends React.Component {
-  render() {
-    const items = [
+  state = {
+    items: [
       {
         value: 'Почитать книгу',
         isDone: true
@@ -27,8 +27,10 @@ class App extends React.Component {
         value: 'Помыть пол',
         isDone: false
       }
-    ];
-    
+    ]
+  };
+
+  render() {
     return (
       <React.Fragment>
       <CssBaseline />
@@ -42,7 +44,7 @@ class App extends React.Component {
           <InputItem />
         </Grid>
         <Grid item xs>
-          <ItemList items={items}/>
+          <ItemList items={this.state.items}/>
         </Grid>
         <Grid item xs>
           <Footer count={3} />
