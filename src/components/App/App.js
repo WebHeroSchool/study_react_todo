@@ -30,6 +30,8 @@ class App extends React.Component {
     ]
   };
 
+  onClickDone = isDone => console.log(isDone);
+
   render() {
     return (
       <React.Fragment>
@@ -44,7 +46,7 @@ class App extends React.Component {
           <InputItem />
         </Grid>
         <Grid item xs>
-          <ItemList items={this.state.items}/>
+          <ItemList items={this.state.items} onClickDone={this.onClickDone}/>
         </Grid>
         <Grid item xs>
           <Footer count={3} />
