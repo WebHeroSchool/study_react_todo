@@ -17,20 +17,36 @@ class App extends React.Component {
     items: [
       {
         value: 'Почитать книгу',
-        isDone: true
+        isDone: true,
+        id: 1
       },
       {
         value: 'Приготовить обед',
-        isDone: false
+        isDone: false, 
+        id: 2
       },
       {
         value: 'Помыть пол',
-        isDone: false
+        isDone: false, 
+        id: 3
       }
-    ]
+    ],
+    count: 3
   };
 
-  onClickDone = isDone => console.log(isDone);
+  onClickDone = id => {
+    const newItemList = this.state.items.map(item => {
+      const newItem = { ...item };
+
+      if (item.id === id) {
+          newItem.isDone = !item.isDone;
+      }
+
+      return newItem;
+    });
+
+    this.setState({ items: newItemList });
+  };
 
   render() {
     return (
@@ -49,7 +65,7 @@ class App extends React.Component {
           <ItemList items={this.state.items} onClickDone={this.onClickDone}/>
         </Grid>
         <Grid item xs>
-          <Footer count={3} />
+          <Footer count={this.state.count} />
         </Grid>
         </Grid>
 
