@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
 
-const Item = ({ value, isDone, onClickDone }) => (
+const Item = ({ value, isDone, onClickDone, id }) => (
 <span>
   <Grid container direction="row" justify="space-between" alignItems="center">
     <Grid item>
@@ -16,7 +16,7 @@ const Item = ({ value, isDone, onClickDone }) => (
         [styles.item]: true,
         [styles.done]: isDone
     })}>
-        <FormControlLabel control={ <Checkbox checked={isDone} onClick={() => onClickDone(isDone)} /> } label={value} />
+        <FormControlLabel control={ <Checkbox checked={isDone} onClick={() => onClickDone(id)} /> } label={value} />
       </span>
     </Grid>
     {/* <Grid item>
