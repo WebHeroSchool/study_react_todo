@@ -48,6 +48,33 @@ class App extends React.Component {
     this.setState({ items: newItemList });
   };
 
+  onClickDelete = id => {
+    // const newItemList = this.state.items.map(item => {
+    //   const newItem = { ...item };
+
+    //   if (item.id === id) {
+    //     var index = this.state.items.indexOf(item)
+    //     if (index !== -1) {
+    //       this.state.items.splice(index, 1);
+    //       this.setState(this.state.items);
+    //     }
+    //   }
+
+    //   return newItem;
+    // });
+
+    // newItemList.count = newItemList.count - 1;
+
+    const newItemList = this.state.items;
+
+    const index = newItemList.findIndex(item => item.id === id);
+    if (index !== -1) {
+      newItemList.splice(index, 1);
+      const newCount = this.state.count - 1;
+      this.setState({ items: newItemList, count: newCount});
+    }
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -62,7 +89,7 @@ class App extends React.Component {
           <InputItem />
         </Grid>
         <Grid item xs>
-          <ItemList items={this.state.items} onClickDone={this.onClickDone}/>
+          <ItemList items={this.state.items} onClickDone={this.onClickDone} onClickDelete={this.onClickDelete}/>
         </Grid>
         <Grid item xs>
           <Footer count={this.state.count} />
