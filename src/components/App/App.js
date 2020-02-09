@@ -10,8 +10,6 @@ import Grid from '@material-ui/core/Grid';
 import { render } from 'react-dom';
 
 
-// const todoItem = 'Почитать книгу';
-
 class App extends React.Component {
   state = {
     items: [
@@ -49,21 +47,6 @@ class App extends React.Component {
   };
 
   onClickDelete = id => {
-    // const newItemList = this.state.items.map(item => {
-    //   const newItem = { ...item };
-
-    //   if (item.id === id) {
-    //     var index = this.state.items.indexOf(item)
-    //     if (index !== -1) {
-    //       this.state.items.splice(index, 1);
-    //       this.setState(this.state.items);
-    //     }
-    //   }
-
-    //   return newItem;
-    // });
-
-    // newItemList.count = newItemList.count - 1;
 
     const newItemList = this.state.items;
 
@@ -73,23 +56,43 @@ class App extends React.Component {
       const newCount = this.state.count - 1;
       this.setState({ items: newItemList, count: newCount});
     }
-  }
+  };
+
+  onClickAdd = value => this.setState(state => 
+    ({
+      items: [
+        ...state.items,
+        {
+          value,
+          isDone: false,
+          id: state.count + 1
+        }
+      ],
+      count: state.count + 1
+    })
+  );
 
   render() {
     return (
       <React.Fragment>
       <CssBaseline />
       <Container maxWidth="s">
-        <Typography component="div" style={{ backgroundColor: '#f7edf7', height: '500px', maxWidth: '600px', margin: '20px auto', padding: '20px'}} >
+        <Typography component="div" style={{ backgroundColor: '#f7edf7',  maxWidth: '600px', margin: '20px auto', padding: '20px'}} >
         <Grid container direction="column" justify="center" alignItems="space-around">
         <Grid item xs>
           <h1 className={styles.title}>Важные дела:</h1>
         </Grid>
         <Grid item s>
-          <InputItem />
+          <InputItem 
+            onClickAdd={this.onClickAdd}
+          />
         </Grid>
         <Grid item xs>
-          <ItemList items={this.state.items} onClickDone={this.onClickDone} onClickDelete={this.onClickDelete}/>
+          <ItemList 
+            items={this.state.items} 
+            onClickDone={this.onClickDone} 
+            onClickDelete={this.onClickDelete}
+          />
         </Grid>
         <Grid item xs>
           <Footer count={this.state.count} />
