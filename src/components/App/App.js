@@ -29,7 +29,8 @@ class App extends React.Component {
         id: 3
       }
     ],
-    count: 3
+    count: 3,
+    hasError: false
   };
 
   onClickDone = id => {
@@ -58,19 +59,32 @@ class App extends React.Component {
     }
   };
 
-  onClickAdd = value => this.setState(state => 
-    ({
-      items: [
-        ...state.items,
-        {
-          value,
-          isDone: false,
-          id: state.count + 1
-        }
-      ],
-      count: state.count + 1
-    })
-  );
+  onClickAdd = value => {
+    if (value !== '')
+    {
+      this.setState(state => 
+        ({
+          items: [
+            ...state.items,
+            {
+              value,
+              isDone: false,
+              id: state.count + 1
+            }
+          ],
+          count: state.count + 1,
+          hasError: false
+        }));
+    }
+
+    else
+    {
+      this.setState(state => 
+        ({
+          hasError: true
+        }));
+    }
+  }
 
   render() {
     return (
@@ -85,6 +99,7 @@ class App extends React.Component {
         <Grid item s>
           <InputItem 
             onClickAdd={this.onClickAdd}
+            hasError={this.state.hasError}
           />
         </Grid>
         <Grid item xs>

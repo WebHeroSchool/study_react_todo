@@ -9,10 +9,12 @@ import Grid from '@material-ui/core/Grid';
 
 const Item = ({ value, isDone, onClickDone, onClickDelete, id }) => (
   <span>
+    
     <Grid 
       container direction="row"
       justify="space-between"
       alignItems="center">
+        
         <Grid item>
           <span className={
             classnames({
