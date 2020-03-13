@@ -1,6 +1,6 @@
 import React from 'react';
 import Item from '../Item/Item';
-
+import PropTypes from 'prop-types';
 
 const ItemList = ({ items, onClickDone, onClickDelete}) => (<div>
     {items.map(item => <div key={item.id}>
@@ -13,5 +13,9 @@ const ItemList = ({ items, onClickDone, onClickDelete}) => (<div>
          />
     </div>)}
 </div>);
+
+ItemList.propTypes = {
+    items: PropTypes.array.isRequired
+};
                         
 export default ItemList;
