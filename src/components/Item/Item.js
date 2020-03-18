@@ -5,7 +5,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-
+import PropTypes from 'prop-types';
 
 const Item = ({ value, isDone, onClickDone, onClickDelete, id }) => (
   <span>
@@ -45,5 +45,9 @@ const Item = ({ value, isDone, onClickDone, onClickDelete, id }) => (
         </Grid>
       </Grid>
   </span>);
+
+Item.propTypes = {
+  value: PropTypes.string.isRequired
+};
 
 export default Item;
