@@ -13,16 +13,16 @@ import { render } from 'react-dom';
 class App extends React.Component {
   state = {
     items: [
-      {
-        value: 'Почитать книгу',
-        isDone: true,
-        id: 1
-      },
-      {
-        value: 'Приготовить обед',
-        isDone: false, 
-        id: 2
-      },
+      // {
+      //   value: 'Почитать книгу',
+      //   isDone: true,
+      //   id: 1
+      // },
+      // {
+      //   value: 'Приготовить обед',
+      //   isDone: false, 
+      //   id: 2
+      // },
       {
         value: 'Помыть пол',
         isDone: false, 
@@ -110,7 +110,7 @@ class App extends React.Component {
           />
         </Grid>
         <Grid item xs>
-          <Footer />
+          <Footer count={this.state.count}/>
         </Grid>
         </Grid>
         </Typography>
