@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const Footer = ({ count }) => (
 <div className={styles.footer}>
-    Осталось выполнить дел: {count}
+    <p>Осталось выполнить дел: {count} </p>
 </div>);
 
 Footer.propTypes = {
