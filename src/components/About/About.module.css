@@ -1,0 +1,15 @@
+.wrap {
+    background-color: #f7edf7;
+    max-width: 300px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    color: purple;
+    text-align: center;
+	position: relative;
+}
+
