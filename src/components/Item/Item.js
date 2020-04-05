@@ -7,13 +7,28 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 
-const Item = ({ value, isDone, onClickDone, onClickDelete, id }) => (
-  <span>
-    
-    <Grid 
-      container direction="row"
-      justify="space-between"
-      alignItems="center">
+
+class Item extends React.Component {
+  componentDidMount () {
+    this.timerID = setInterval(() => console.log('утечка памяти'), 1000);
+  }
+
+  // componentDidUpdate () {
+  //   console.log('componentDidUpdate');
+  // }
+
+  componentWillUnmount () {
+    clearInterval(this.timerID);
+  }
+
+  render() {
+    const { value, isDone, onClickDone, onClickDelete, id } = this.props;
+    return (
+      <span>
+        <Grid 
+          container direction="row"
+          justify="space-between"
+          alignItems="center">
         
         <Grid item>
           <span className={
@@ -33,21 +48,18 @@ const Item = ({ value, isDone, onClickDone, onClickDelete, id }) => (
           </span>
         </Grid>
       
-        <Grid>
-          <Button
+          <Grid>
+            <Button
             variant="outlined"
             size="small"
             color="primary"
-            onClick={() => onClickDelete(id)}
-          >
+            onClick={() => onClickDelete(id)} >
             Удалить
-          </Button>
+           </Button>
+          </Grid>
         </Grid>
-      </Grid>
-  </span>);
-
-Item.propTypes = {
-  value: PropTypes.string.isRequired
-};
+      </span>);
+  }
+}
 
 export default Item;

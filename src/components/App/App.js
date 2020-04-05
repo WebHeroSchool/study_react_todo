@@ -110,7 +110,7 @@ class App extends React.Component {
           />
         </Grid>
         <Grid item xs>
-          <Footer />
+          <Footer count={this.state.count}/>
         </Grid>
         </Grid>
         </Typography>
